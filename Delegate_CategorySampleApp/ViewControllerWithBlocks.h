@@ -1,16 +1,14 @@
 //
-//  ViewController.h
+//  ViewControllerWithBlocks.h
 //  Delegate_CategorySampleApp
 //
-//  Created by webonise on 21/09/16.
+//  Created by webonise on 22/09/16.
 //  Copyright © 2016 webonise. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "CustomAlertView.h"
-#import "ViewControllerWithBlocks.h"
 #import "Constants.h"
-@interface ViewController : UIViewController<CustomAlertViewDelegate>
+@interface ViewControllerWithBlocks : UIViewController
 
 @end
-

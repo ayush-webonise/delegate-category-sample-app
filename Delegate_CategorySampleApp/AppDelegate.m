@@ -13,10 +13,16 @@
 @end
 
 @implementation AppDelegate
-@synthesize window;
+@synthesize window, viewController, navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    viewController = [storyBoard instantiateViewControllerWithIdentifier:@"ViewController"];
+    navigationController = [[UINavigationController alloc]initWithRootViewController:viewController];
+    window = [[UIWindow alloc]init];
+    [window setRootViewController:navigationController];
+
     return YES;
 }
 

@@ -15,6 +15,7 @@
 		F13D20271D928B9B00B83005 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F13D20251D928B9B00B83005 /* LaunchScreen.storyboard */; };
 		F13D20361D92AD1200B83005 /* CustomAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = F13D20351D92AD1200B83005 /* CustomAlertView.m */; };
 		F1CA17CA1D93AAB9007E920F /* colorCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = F1CA17C91D93AAB9007E920F /* colorCategory.m */; };
+		F1CA17CD1D93DFAE007E920F /* ViewControllerWithBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = F1CA17CC1D93DFAE007E920F /* ViewControllerWithBlocks.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,9 @@
 		F13D20351D92AD1200B83005 /* CustomAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertView.m; sourceTree = "<group>"; };
 		F1CA17C81D93AAB9007E920F /* colorCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = colorCategory.h; sourceTree = "<group>"; };
 		F1CA17C91D93AAB9007E920F /* colorCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = colorCategory.m; sourceTree = "<group>"; };
+		F1CA17CB1D93DFAE007E920F /* ViewControllerWithBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerWithBlocks.h; sourceTree = "<group>"; };
+		F1CA17CC1D93DFAE007E920F /* ViewControllerWithBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerWithBlocks.m; sourceTree = "<group>"; };
+		F1CA17CE1D941AFF007E920F /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +72,11 @@
 				F13D201B1D928B9B00B83005 /* AppDelegate.m */,
 				F13D201D1D928B9B00B83005 /* ViewController.h */,
 				F13D201E1D928B9B00B83005 /* ViewController.m */,
+				F1CA17CE1D941AFF007E920F /* Constants.h */,
 				F13D20341D92AD1200B83005 /* CustomAlertView.h */,
 				F13D20351D92AD1200B83005 /* CustomAlertView.m */,
+				F1CA17CB1D93DFAE007E920F /* ViewControllerWithBlocks.h */,
+				F1CA17CC1D93DFAE007E920F /* ViewControllerWithBlocks.m */,
 				F1CA17C81D93AAB9007E920F /* colorCategory.h */,
 				F1CA17C91D93AAB9007E920F /* colorCategory.m */,
 				F13D20201D928B9B00B83005 /* Main.storyboard */,
@@ -159,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1CA17CD1D93DFAE007E920F /* ViewControllerWithBlocks.m in Sources */,
 				F13D201F1D928B9B00B83005 /* ViewController.m in Sources */,
 				F13D201C1D928B9B00B83005 /* AppDelegate.m in Sources */,
 				F13D20361D92AD1200B83005 /* CustomAlertView.m in Sources */,

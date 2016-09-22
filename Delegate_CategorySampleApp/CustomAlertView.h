@@ -17,4 +17,6 @@
 -(void) designAlertView :(NSString*)labelButtonMessage :(NSString*)titleButton1 :(NSString*)titleButton2;
 -(UIView*) getAlertViewObject;
 -(UIColor*) changeAlertViewBackgroundColor;
+-(void) button1ActionUsingBlock: (void(^)(void))button1BlockMethod;
+-(void) button2ActionUsingBlock: (void(^)(void))button2BlockMethod;
 @end
