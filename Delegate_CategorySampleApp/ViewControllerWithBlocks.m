@@ -15,23 +15,13 @@
 @implementation ViewControllerWithBlocks
 
 CustomAlertView *customAlertViewBlocks;
-UIView *viewBlocks;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    customAlertViewBlocks = [[CustomAlertView alloc]init];
-    [customAlertViewBlocks designAlertView :@"Alert is Using Blocks!" :@"cancel" :@"OK"];
-    viewBlocks = [customAlertViewBlocks getAlertViewObject];
-    [customAlertViewBlocks button1ActionUsingBlock:^{
-        [viewBlocks removeFromSuperview];
-    }];
-    [customAlertViewBlocks button2ActionUsingBlock:^{
-        NSLog(@"Button 2 Pressed");
-        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_NAME object:nil];
-    }];
-    [self.view addSubview:viewBlocks];
-
+    customAlertViewBlocks = [[CustomAlertView alloc]initWithBlocks:@"Blocks are Used Here" :@"Cancel" :@"Ok" :^{[customAlertViewBlocks removeFromSuperview];} :^{NSLog(@"Button 2 Pressed");
+                            [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_NAME object:nil];}];
+    [self.view addSubview:customAlertViewBlocks];
 }
 
 - (void)didReceiveMemoryWarning {

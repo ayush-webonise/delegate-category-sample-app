@@ -8,55 +8,79 @@
 
 #import "CustomAlertView.h"
 #import "colorCategory.h"
+typedef void (^ButtonBlockMethod)(void);
 
 UIView *view;
 
 @implementation CustomAlertView
-@synthesize delegate;
+@synthesize delegateProperty, labelAlertViewMessage, buttonOneText, buttonTwoText;
 
-void (^button1BlockMethod)(void);
-void(^button2BlockMethod)(void);
+ButtonBlockMethod BlockMethodOne;
+ButtonBlockMethod BlockMethodTwo;
+
+/** this is initializer method for delegates
+ \params Params labelButtonMessage, titleButton1, titleButton2 for displaying alert message and two button titles and a delegate
+ \returns Returns self of UIView Type
+ */
+- (UIView*)initWithDelegate:(NSString*)labelButtonMessage :(NSString*)titleButton1 :(NSString*)titleButton2 :(CustomAlertView*)delegate{
+    self = [super init];
+    self.labelAlertViewMessage = labelButtonMessage;
+    self.delegateProperty = (id)delegate;
+    self.buttonOneText = titleButton1;
+    self.buttonTwoText = titleButton2;
+    [self designAlertView];
+    return self;
+}
+
+/** this is initializer method for Blocks
+ \params Params labelButtonMessage, titleButton1, titleButton2 for displaying alert message and two button titles and two blocks
+ \returns Returns self of UIView Type
+ */
+- (UIView*)initWithBlocks:(NSString*)labelButtonMessage :(NSString*)titleButton1 :(NSString*)titleButton2 : (void(^)(void))button1BlockMethod :(void(^)(void))button2BlockMethod{
+    self = [super init];
+    self.labelAlertViewMessage = labelButtonMessage;
+    self.buttonOneText = titleButton1;
+    self.buttonTwoText = titleButton2;
+    BlockMethodOne = button1BlockMethod;
+    BlockMethodTwo = button2BlockMethod;
+    [self designAlertView];
+    return self;
+}
 
 /** This method designs a custom alert view using UIView
  \params Params labelButtonMessage, titleButton1, titleButton2 for displaying alert message and two button titles
  \returns Returns Nothing
  */
--(void) designAlertView :(NSString*)labelButtonMessage :(NSString*)titleButton1 :(NSString*)titleButton2{
-    UIView *customAlertView = [[UIView alloc]initWithFrame:CGRectMake(30, 70, 300, 200)];
-    customAlertView.backgroundColor = [self changeAlertViewBackgroundColor];
+-(void) designAlertView{
+   [self setFrame:CGRectMake(30, 70, 300, 200)];
+    self.backgroundColor = [self changeAlertViewBackgroundColor];
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(70, 20, 180, 60)];
-    [label setText:labelButtonMessage];
+    [label setText:labelAlertViewMessage];
     UIButton *button1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     button1.frame = CGRectMake(70, 100, 90, 60);
-    [button1 setTitle:titleButton1 forState:UIControlStateNormal];
+    [button1 setTitle:buttonOneText forState:UIControlStateNormal];
     [button1 addTarget:self action:@selector(firstButtonpressed) forControlEvents:UIControlEventTouchUpInside];
     UIButton *button2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     button2.frame = CGRectMake(190, 100, 90, 60);
-    [button2 setTitle:titleButton2 forState:UIControlStateNormal];
+    [button2 setTitle:buttonTwoText forState:UIControlStateNormal];
     [button2 addTarget:self action:@selector(secondButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    [customAlertView addSubview:label];
-    [customAlertView addSubview:button1];
-    [customAlertView addSubview:button2];
-    view = customAlertView;
+    [self addSubview:label];
+    [self addSubview:button1];
+    [self addSubview:button2];
+//    view = customAlertView;
 }
 
-/** This method returns the custom alert View object of type UIView
- \params Params None
- \returns Returns view of type UIView
- */
--(UIView*) getAlertViewObject{
-    return view;
-}
 
 /** This method chooses whether to call button action using Delegate or Block
  \params Params None
  \returns Returns Nothing
  */
 -(void) firstButtonpressed{
-    if([delegate conformsToProtocol:@protocol(CustomAlertViewDelegate)])
-    [delegate onButton1Pressed];
+    
+    if([delegateProperty conformsToProtocol:@protocol(CustomAlertViewDelegate)])
+    [delegateProperty onButton1Pressed];
     else
-        button1BlockMethod();
+        BlockMethodOne();
 }
 
 /** This method chooses whether to call button action using Delegate or Block
@@ -64,28 +88,10 @@ void(^button2BlockMethod)(void);
  \returns Returns Nothing
  */
 -(void) secondButtonPressed{
-    if([delegate conformsToProtocol:@protocol(CustomAlertViewDelegate)])
-       [delegate onButton2Pressed];
+    if([delegateProperty conformsToProtocol:@protocol(CustomAlertViewDelegate)])
+       [delegateProperty onButton2Pressed];
     else
-        button2BlockMethod();
-}
-
-/** This method action on pressing button 1 in custom alert view
- \params Params commonBlockMethod1 Block
- \returns Returns Nothing
- */
--(void) button1ActionUsingBlock: (void(^)(void))commonBlockMethod1{
-    NSLog(@"Blocks are used here");
-    button1BlockMethod = commonBlockMethod1;
-}
-
-/** This method performs action on pressing button 2 in custom alert view
- \params Params commonBlockMethod2 Block
- \returns Returns Nothing
- */
--(void) button2ActionUsingBlock: (void(^)(void))commonBlockMethod2{
-    NSLog(@"Button 2 is using Blocks");
-    button2BlockMethod = commonBlockMethod2;
+        BlockMethodTwo();
 }
 
 /** This method changes background color of the custom alert view
