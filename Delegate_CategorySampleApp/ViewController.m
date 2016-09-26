@@ -14,15 +14,9 @@
 
 @implementation ViewController
 CustomAlertView *customAlertView;
-UIView *view1;
 - (void)viewDidLoad{
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    customAlertView = [[CustomAlertView alloc]initWithDelegate:@"Do you want delete?" :@"Cancel" :@"OK" :(CustomAlertView*)self];
-//    customAlertView.delegate = self;
-//    [customAlertView designAlertView :@"Do you want to delete?" :@"cancel" :@"OK"];
-      //[customAlertView addSubview:[customAlertView getAlertViewObject]];
-    [self.view addSubview:customAlertView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notifyOtherController) name:NOTIFICATION_NAME object:nil];
 }
 
@@ -50,6 +44,7 @@ UIView *view1;
  */
 -(void) onButton2Pressed{
     NSLog(@"button 2  is pressed");
+    [self removeView];
 }
 
 /** This method naviagtes to second screen when "Blocks Work Here" button is pressed
@@ -68,6 +63,15 @@ UIView *view1;
 -(void)notifyOtherController
 {
     NSLog(@"Notification Received in Delegate View Controller");
+}
+
+/** This method pops up alert view when "Show Alert" button is pressed
+ \params Params None
+ \returns Returns Nothing
+ */
+- (IBAction)buttonPressedForAlertView:(id)sender {
+    customAlertView = [[CustomAlertView alloc]initWithDelegate:self :@"Do you want delete?" :@"Cancel" :@"OK" ];
+    [self.view addSubview:customAlertView];
 }
 
 - (void)didReceiveMemoryWarning {

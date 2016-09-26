@@ -13,16 +13,11 @@
 @end
 
 @interface CustomAlertView : UIView
+
 @property(nonatomic) id <CustomAlertViewDelegate> delegateProperty;
-//-(void) designAlertView :(NSString*)labelButtonMessage :(NSString*)titleButton1 :(NSString*)titleButton2;
-@property(strong, nonatomic) NSString* labelAlertViewMessage;
-@property(strong, nonatomic) NSString* buttonOneText;
-@property(strong, nonatomic) NSString* buttonTwoText;
+
 -(void) designAlertView;
-//-(UIView*) getAlertViewObject;
 -(UIColor*) changeAlertViewBackgroundColor;
-//-(void) button1ActionUsingBlock: (void(^)(void))button1BlockMethod;
-//-(void) button2ActionUsingBlock: (void(^)(void))button2BlockMethod;
-- (UIView*)initWithDelegate:(NSString*)labelButtonMessage :(NSString*)titleButton1 :(NSString*)titleButton2 :(CustomAlertView*)delegate;
+- (UIView*)initWithDelegate:(id)delegate :(NSString*)labelButtonMessage :(NSString*)titleButton1 :(NSString*)titleButton2 ;
 - (UIView*)initWithBlocks:(NSString*)labelButtonMessage :(NSString*)titleButton1 :(NSString*)titleButton2 : (void(^)(void))button1BlockMethod :(void(^)(void))button2BlockMethod;
 @end

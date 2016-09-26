@@ -19,7 +19,7 @@ CustomAlertView *customAlertViewBlocks;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    customAlertViewBlocks = [[CustomAlertView alloc]initWithBlocks:@"Blocks are Used Here" :@"Cancel" :@"Ok" :^{[customAlertViewBlocks removeFromSuperview];} :^{NSLog(@"Button 2 Pressed");
+    customAlertViewBlocks = [[CustomAlertView alloc]initWithBlocks:@"Blocks are Used Here" :@"Cancel" :@"Ok" :^{[customAlertViewBlocks removeFromSuperview];} :^{NSLog(@"Button 2 Pressed");[customAlertViewBlocks removeFromSuperview];
                             [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_NAME object:nil];}];
     [self.view addSubview:customAlertViewBlocks];
 }

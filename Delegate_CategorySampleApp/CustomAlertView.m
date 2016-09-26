@@ -10,10 +10,16 @@
 #import "colorCategory.h"
 typedef void (^ButtonBlockMethod)(void);
 
-UIView *view;
+@interface CustomAlertView(){
+    NSString* labelAlertViewMessage;
+    NSString* buttonOneText;
+    NSString* buttonTwoText;
+}
+
+@end
 
 @implementation CustomAlertView
-@synthesize delegateProperty, labelAlertViewMessage, buttonOneText, buttonTwoText;
+@synthesize delegateProperty;
 
 ButtonBlockMethod BlockMethodOne;
 ButtonBlockMethod BlockMethodTwo;
@@ -22,12 +28,12 @@ ButtonBlockMethod BlockMethodTwo;
  \params Params labelButtonMessage, titleButton1, titleButton2 for displaying alert message and two button titles and a delegate
  \returns Returns self of UIView Type
  */
-- (UIView*)initWithDelegate:(NSString*)labelButtonMessage :(NSString*)titleButton1 :(NSString*)titleButton2 :(CustomAlertView*)delegate{
+- (UIView*)initWithDelegate:(id)delegate :(NSString*)labelButtonMessage :(NSString*)titleButton1 :(NSString*)titleButton2 {
     self = [super init];
-    self.labelAlertViewMessage = labelButtonMessage;
+    self->labelAlertViewMessage = labelButtonMessage;
     self.delegateProperty = (id)delegate;
-    self.buttonOneText = titleButton1;
-    self.buttonTwoText = titleButton2;
+    self->buttonOneText = titleButton1;
+    self->buttonTwoText = titleButton2;
     [self designAlertView];
     return self;
 }
@@ -38,9 +44,9 @@ ButtonBlockMethod BlockMethodTwo;
  */
 - (UIView*)initWithBlocks:(NSString*)labelButtonMessage :(NSString*)titleButton1 :(NSString*)titleButton2 : (void(^)(void))button1BlockMethod :(void(^)(void))button2BlockMethod{
     self = [super init];
-    self.labelAlertViewMessage = labelButtonMessage;
-    self.buttonOneText = titleButton1;
-    self.buttonTwoText = titleButton2;
+    self->labelAlertViewMessage = labelButtonMessage;
+    self->buttonOneText = titleButton1;
+    self->buttonTwoText = titleButton2;
     BlockMethodOne = button1BlockMethod;
     BlockMethodTwo = button2BlockMethod;
     [self designAlertView];
@@ -67,7 +73,6 @@ ButtonBlockMethod BlockMethodTwo;
     [self addSubview:label];
     [self addSubview:button1];
     [self addSubview:button2];
-//    view = customAlertView;
 }
 
 

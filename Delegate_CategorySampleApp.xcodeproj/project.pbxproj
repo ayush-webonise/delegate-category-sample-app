@@ -70,15 +70,10 @@
 			children = (
 				F13D201A1D928B9B00B83005 /* AppDelegate.h */,
 				F13D201B1D928B9B00B83005 /* AppDelegate.m */,
-				F13D201D1D928B9B00B83005 /* ViewController.h */,
-				F13D201E1D928B9B00B83005 /* ViewController.m */,
-				F1CA17CE1D941AFF007E920F /* Constants.h */,
-				F13D20341D92AD1200B83005 /* CustomAlertView.h */,
-				F13D20351D92AD1200B83005 /* CustomAlertView.m */,
-				F1CA17CB1D93DFAE007E920F /* ViewControllerWithBlocks.h */,
-				F1CA17CC1D93DFAE007E920F /* ViewControllerWithBlocks.m */,
-				F1CA17C81D93AAB9007E920F /* colorCategory.h */,
-				F1CA17C91D93AAB9007E920F /* colorCategory.m */,
+				F14A80821D99152000D3A9BB /* Constants */,
+				F14A80811D99149C00D3A9BB /* View */,
+				F14A807F1D99144C00D3A9BB /* ViewControllers */,
+				F14A80801D99148500D3A9BB /* Category */,
 				F13D20201D928B9B00B83005 /* Main.storyboard */,
 				F13D20231D928B9B00B83005 /* Assets.xcassets */,
 				F13D20251D928B9B00B83005 /* LaunchScreen.storyboard */,
@@ -94,6 +89,43 @@
 				F13D20181D928B9B00B83005 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F14A807F1D99144C00D3A9BB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F1CA17CB1D93DFAE007E920F /* ViewControllerWithBlocks.h */,
+				F1CA17CC1D93DFAE007E920F /* ViewControllerWithBlocks.m */,
+				F13D201D1D928B9B00B83005 /* ViewController.h */,
+				F13D201E1D928B9B00B83005 /* ViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F14A80801D99148500D3A9BB /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				F1CA17C81D93AAB9007E920F /* colorCategory.h */,
+				F1CA17C91D93AAB9007E920F /* colorCategory.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		F14A80811D99149C00D3A9BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F13D20341D92AD1200B83005 /* CustomAlertView.h */,
+				F13D20351D92AD1200B83005 /* CustomAlertView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F14A80821D99152000D3A9BB /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				F1CA17CE1D941AFF007E920F /* Constants.h */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
